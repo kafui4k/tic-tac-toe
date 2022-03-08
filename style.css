@@ -10,15 +10,19 @@ body {
     --mark-size: calc(var(--cell-size) * .5);
 }
 
-.gameboard {
+.container {
     display: grid;
     justify-content: center;
     align-content: center;
     justify-items: center;
     align-items: center;
-    grid-template-columns: repeat(3, auto);
     height: 100vh;
     width: 100vw;
+}
+
+.gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
 }
 
 .cell {
@@ -108,4 +112,37 @@ body {
     width: calc(var(--mark-size) * .7);
     height: calc(var(--mark-size) * .7);
     background-color: white;
+}
+
+.gameboard-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: dimgray;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-size: 10rem;
+}
+
+.gameboard-message button {
+    font-size: 3rem;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.gameboard-message button:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+
+.gameboard-message.show {
+    display: flex;
 }

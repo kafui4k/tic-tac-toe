@@ -17,9 +17,16 @@ const WIN_OPTION_MATCHES = [
 ]
 let O_CellTurn;
 
+playAgainButton.addEventListener('click', startGame); // start game all over
+
 function startGame() {
     O_CellTurn = false;
     gameCells.forEach(gameCell => {
+        // reset all cells and values to default
+        // on startGame
+        gameCell.classList.remove(X_CELL);
+        gameCell.classList.remove(O_CELL);
+        gameCell.removeEventListener('click', handleCellClick);
         gameCell.addEventListener('click', handleCellClick, { once: true })
     })
     gameboardMessage.classList.remove('show');
